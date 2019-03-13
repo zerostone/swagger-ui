@@ -35,5 +35,7 @@
 
 *  `allowFilter`: Allow operation filter or not, default to `false`
 
+*  `allowSwitchContentType`: Allow content type switching or not (request/response), default to `true`
+
 
 For anything else, check the [Swagger-UI](https://github.com/swagger-api/swagger-ui) repository.

@@ -78,13 +78,13 @@ export default class Responses extends React.Component {
     const acceptControllingResponse = isSpecOAS3 ?
       getAcceptControllingResponse(responses) : null
 
-    const { localization } = getConfigs();
+    const { localization, allowSwitchContentType } = getConfigs();
 
     return (
       <div className="responses-wrapper">
         <div className="opblock-section-header">
           <h4>{localization.Responses}</h4>
-            { specSelectors.isOAS3() ? null : <label>
+            { (specSelectors.isOAS3() || allowSwitchContentType === false) ? null : <label>
               <span>{localization.RespContentType}</span>
               <ContentType value={producesValue}
                          onChange={this.onChangeProducesWrapper}

@@ -21,7 +21,8 @@ function disableSchemesPlugin() {
 function disableAuthorizePlugin() {
   return {
     wrapComponents: {
-      authorizeBtn: () => () => null
+      authorizeBtn: () => () => null,
+      authorizeOperationBtn: () => () => null
     }
   };
 };
@@ -46,7 +47,8 @@ export default class SwaggerUI extends React.Component {
     showSchemes: PropTypes.bool,
     allowTryItOut: PropTypes.bool,
     allowAuthorize: PropTypes.bool,
-    allowFilter: PropTypes.bool
+    allowFilter: PropTypes.bool,
+    allowSwitchContentType: PropTypes.bool
   }
 
   constructor(props) {
@@ -57,7 +59,7 @@ export default class SwaggerUI extends React.Component {
 
   componentDidMount() {
     const plugins = []
-    const { showInfo, showSchemes, allowTryItOut, allowAuthorize, allowFilter, localization } = this.props
+    const { showInfo, showSchemes, allowTryItOut, allowAuthorize, allowFilter, allowSwitchContentType, localization } = this.props
     
     if(showInfo === false) {
       plugins.push(disableInfoPlugin)
@@ -80,6 +82,7 @@ export default class SwaggerUI extends React.Component {
       onComplete: this.onComplete,
       localization: localization || {},
       filter: allowFilter,
+      allowSwitchContentType,
       showInfo,
       showSchemes,
       plugins
