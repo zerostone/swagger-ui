@@ -46,14 +46,16 @@ export default class ModelExample extends React.Component {
 
     let isOAS3 = specSelectors.isOAS3()
 
+    const { localization } = getConfigs();
+
     return <div>
       <ul className="tab">
         <li className={ "tabitem" + ( this.state.activeTab === "example" ? " active" : "") }>
-          <a className="tablinks" data-name="example" onClick={ this.activeTab }>{isExecute ? "Edit Value" : "Example Value"}</a>
+          <a className="tablinks" data-name="example" onClick={ this.activeTab }>{isExecute ? "Edit Value" : localization.ParamExampleValue}</a>
         </li>
         { schema ? <li className={ "tabitem" + ( this.state.activeTab === "model" ? " active" : "") }>
           <a className={ "tablinks" + ( isExecute ? " inactive" : "" )} data-name="model" onClick={ this.activeTab }>
-            {isOAS3 ? "Schema" : "Model" }
+            {isOAS3 ? "Schema" : localization.ParamExampleModel }
           </a>
         </li> : null }
       </ul>

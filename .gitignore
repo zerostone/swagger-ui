@@ -12,6 +12,7 @@ test/e2e/db.json
 docs/_book
 
 flavors/**/dist/*
+!flavors/**/dist/.npmrc
 
 # Cypress
 test/e2e-cypress/screenshots

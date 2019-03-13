@@ -78,12 +78,14 @@ export default class Responses extends React.Component {
     const acceptControllingResponse = isSpecOAS3 ?
       getAcceptControllingResponse(responses) : null
 
+    const { localization } = getConfigs();
+
     return (
       <div className="responses-wrapper">
         <div className="opblock-section-header">
-          <h4>Responses</h4>
+          <h4>{localization.Responses}</h4>
             { specSelectors.isOAS3() ? null : <label>
-              <span>Response content type</span>
+              <span>{localization.RespContentType}</span>
               <ContentType value={producesValue}
                          onChange={this.onChangeProducesWrapper}
                          contentTypes={produces}
@@ -101,7 +103,7 @@ export default class Responses extends React.Component {
                                                 path={ this.props.path }
                                                 method={ this.props.method }
                                                 displayRequestDuration={ displayRequestDuration } />
-                                  <h4>Responses</h4>
+                                  <h4>{localization.Responses}</h4>
                                 </div>
 
           }
@@ -109,9 +111,9 @@ export default class Responses extends React.Component {
           <table className="responses-table">
             <thead>
               <tr className="responses-header">
-                <td className="col col_header response-col_status">Code</td>
-                <td className="col col_header response-col_description">Description</td>
-                { specSelectors.isOAS3() ? <td className="col col_header response-col_links">Links</td> : null }
+                <td className="col col_header response-col_status">{localization.RespCode}</td>
+                <td className="col col_header response-col_description">{localization.RespDescription}</td>
+                { specSelectors.isOAS3() ? <td className="col col_header response-col_links">{localization.RespLinks}</td> : null }
               </tr>
             </thead>
             <tbody>

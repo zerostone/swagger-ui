@@ -43,10 +43,11 @@ export default class Models extends Component {
     const Collapse = getComponent("Collapse")
     const ModelCollapse = getComponent("ModelCollapse")
     const JumpToPath = getComponent("JumpToPath")
+    const { localization } = getConfigs();
 
     return <section className={ showModels ? "models is-open" : "models"}>
       <h4 onClick={() => layoutActions.show("models", !showModels)}>
-        <span>{isOAS3 ? "Schemas" : "Models" }</span>
+        <span>{isOAS3 ? localization.Schemas : localization.Models }</span>
         <svg width="20" height="20">
           <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
         </svg>

@@ -13,7 +13,7 @@ export default class BaseLayout extends React.Component {
   }
 
   render() {
-    let {errSelectors, specSelectors, getComponent} = this.props
+    let { errSelectors, specSelectors, getComponent } = this.props
 
     let SvgAssets = getComponent("SvgAssets")
     let InfoContainer = getComponent("InfoContainer", true)
@@ -36,8 +36,8 @@ export default class BaseLayout extends React.Component {
     const loadingStatus = specSelectors.loadingStatus()
 
     let loadingMessage = null
-  
-    if(loadingStatus === "loading") {
+
+    if (loadingStatus === "loading") {
       loadingMessage = <div className="info">
         <div className="loading-container">
           <div className="loading"></div>
@@ -45,7 +45,7 @@ export default class BaseLayout extends React.Component {
       </div>
     }
 
-    if(loadingStatus === "failed") {
+    if (loadingStatus === "failed") {
       loadingMessage = <div className="info">
         <div className="loading-container">
           <h4 className="title">Failed to load API definition.</h4>
@@ -65,11 +65,11 @@ export default class BaseLayout extends React.Component {
       </div>
     }
 
-    if(!loadingMessage && isSpecEmpty) {
+    if (!loadingMessage && isSpecEmpty) {
       loadingMessage = <h4>No API definition provided.</h4>
     }
 
-    if(loadingMessage) {
+    if (loadingMessage) {
       return <div className="swagger-ui">
         <div className="loading-container">
           {loadingMessage}
@@ -85,41 +85,40 @@ export default class BaseLayout extends React.Component {
     const hasSecurityDefinitions = !!specSelectors.securityDefinitions()
 
     return (
-
       <div className='swagger-ui'>
-          <SvgAssets />
-          <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors/>}>
-            <Errors/>
-            <Row className="information-container">
-              <Col mobile={12}>
-                <InfoContainer/>
-              </Col>
-            </Row>
+        <SvgAssets />
+        <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors />}>
+          <Errors />
+          <Row className="information-container">
+            <Col mobile={12}>
+              <InfoContainer />
+            </Col>
+          </Row>
 
-            {hasServers || hasSchemes || hasSecurityDefinitions ? (
-              <div className="scheme-container">
-                <Col className="schemes wrapper" mobile={12}>
-                  {hasServers ? (<ServersContainer />) : null}
-                  {hasSchemes ? (<SchemesContainer />) : null}
-                  {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
-                </Col>
-              </div>
-            ) : null}
-
-            <FilterContainer/>
-
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Operations/>
+          {hasServers || hasSchemes || hasSecurityDefinitions ? (
+            <div className="scheme-container">
+              <Col className="schemes wrapper" mobile={12}>
+                {hasServers ? (<ServersContainer />) : null}
+                {hasSchemes ? (<SchemesContainer />) : null}
+                {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
               </Col>
-            </Row>
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Models/>
-              </Col>
-            </Row>
-          </VersionPragmaFilter>
-        </div>
-      )
+            </div>
+          ) : null}
+
+          <FilterContainer />
+
+          <Row>
+            <Col mobile={12} desktop={12} >
+              <Operations />
+            </Col>
+          </Row>
+          <Row>
+            <Col mobile={12} desktop={12} >            
+              <Models />
+            </Col>
+          </Row>
+        </VersionPragmaFilter>
+      </div>
+    )
   }
 }

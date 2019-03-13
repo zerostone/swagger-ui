@@ -10,7 +10,7 @@ export default class SchemesContainer extends React.Component {
   }
 
   render () {
-    const {specActions, specSelectors, getComponent} = this.props
+    const {specActions, specSelectors, getComponent } = this.props
 
     const currentScheme = specSelectors.operationScheme()
     const schemes = specSelectors.schemes()

@@ -136,6 +136,7 @@ export default class ParameterRow extends Component {
                    isExecute={ isExecute }
                    specSelectors={ specSelectors }
                    pathMethod={ pathMethod }
+                   getConfigs = { getConfigs }
       />
 
     const ModelExample = getComponent("modelExample")
