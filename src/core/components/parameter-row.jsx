@@ -115,7 +115,7 @@ export default class ParameterRow extends Component {
 
     let { isOAS3 } = specSelectors
 
-    const { showExtensions, showCommonExtensions } = getConfigs()
+    const { showExtensions, showCommonExtensions, localization } = getConfigs()
 
     if(!param) {
       param = rawParam
@@ -190,7 +190,7 @@ export default class ParameterRow extends Component {
     return (
       <tr data-param-name={param.get("name")} data-param-in={param.get("in")}>
         <td className="col parameters-col_name">
-          <div className={required ? "parameter__name required" : "parameter__name"}>
+          <div className={required ? "parameter__name required" : "parameter__name"} requiredtext={localization.ParamRequired} >
             { param.get("name") }
             { !required ? null : <span style={{color: "red"}}>&nbsp;*</span> }
           </div>
@@ -200,7 +200,7 @@ export default class ParameterRow extends Component {
             { format && <span className="prop-format">(${format})</span>}
           </div>
           <div className="parameter__deprecated">
-            { isOAS3 && isOAS3() && param.get("deprecated") ? "deprecated": null }
+            { isOAS3 && isOAS3() && param.get("deprecated") ? localization.ParamDeprecated: null }
           </div>
           <div className="parameter__in">({ param.get("in") })</div>
           { !showCommonExtensions || !commonExt.size ? null : commonExt.map((v, key) => <ParameterExt key={`${key}-${v}`} xKey={key} xVal={v} /> )}
@@ -212,14 +212,14 @@ export default class ParameterRow extends Component {
 
           { (bodyParam || !isExecute) && isDisplayParamEnum ?
             <Markdown className="parameter__enum" source={
-                "<i>Available values</i> : " + paramEnum.map(function(item) {
+                `<i>${localization.ParamEnumAvailableValues}</i> : ` + paramEnum.map(function(item) {
                     return item
                   }).toArray().join(", ")}/>
             : null
           }
 
           { (bodyParam || !isExecute) && paramDefaultValue !== undefined ?
-            <Markdown className="parameter__default" source={"<i>Default value</i> : " + paramDefaultValue}/>
+            <Markdown className="parameter__default" source={`<i>${localization.ParamDefaultValue}</i> : ` + paramDefaultValue}/>
             : null
           }
 

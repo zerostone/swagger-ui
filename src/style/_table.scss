@@ -115,7 +115,7 @@ table
 
             padding: 5px;
 
-            content: 'required';
+            content: attr(requiredtext);
 
             color: rgba($table-parameter-name-required-font-color, .6);
         }

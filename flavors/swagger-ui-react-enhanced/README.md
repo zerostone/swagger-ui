@@ -4,7 +4,7 @@
 `swagger-ui-react-enhanced` is based on [`swagger-ui-react`](https://github.com/swagger-api/swagger-ui/tree/master/flavors/swagger-ui-react), intend to add some UI customization ability via options.
 
 
-* Available customization labels listed below:
+* Labels customizable:
 
     ```javascript
     localization: {
@@ -15,6 +15,10 @@
         ParamExampleValue: '示例',
         ParamExampleModel: '模型',
         ParamContentType: '参数类型',
+        ParamRequired: '必填',
+        ParamEnumAvailableValues: '可选值',
+        ParamDefaultValue: '默认值',
+        ParamDeprecated: '弃用',
         NoParameters: '没有参数',
         RespContentType: '返回类型',
         RespCode: '代码',

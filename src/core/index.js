@@ -88,13 +88,17 @@ module.exports = function SwaggerUI(opts) {
       ParamExampleValue: 'Example Value',
       ParamExampleModel: 'Model',
       ParamContentType: 'Parameter content type',
+      ParamRequired: 'required',
+      ParamEnumAvailableValues: 'Available values',
+      ParamDefaultValue: 'Default value',
+      ParamDeprecated: 'deprecated',
       NoParameters: 'No parameters',
       RespContentType: 'Response content type',
       RespCode: 'Code',
       RespDescription: 'Description',
       RespLinks: 'Links',
       Schemas: 'Schemas',
-      Models: 'Models'      
+      Models: 'Models'
     }
   }
 
